@@ -1076,23 +1076,13 @@ class Danfe extends DaCommon
         //numero da NF
         $aFont = ['font' => $this->fontePadrao, 'size' => 10, 'style' => 'B'];
         $y1    = $y + 20;
-        $numNF = str_pad(
-            $this->ide->getElementsByTagName('nNF')->item(0)->nodeValue,
-            9,
-            "0",
-            STR_PAD_LEFT
-        );
+        $numNF = $this->ide->getElementsByTagName('nNF')->item(0)->nodeValue;
         $numNF = $this->formatField($numNF, "###.###.###");
         $texto = "Nº. " . $numNF;
         $this->pdf->textBox($x, $y1, $w, $h, $texto, $aFont, 'C', 'C', 0, '');
         //Série
         $y1    = $y + 23;
-        $serie = str_pad(
-            $this->ide->getElementsByTagName('serie')->item(0)->nodeValue,
-            3,
-            "0",
-            STR_PAD_LEFT
-        );
+        $serie = $this->ide->getElementsByTagName('serie')->item(0)->nodeValue;
         $texto = "Série " . $serie;
         $this->pdf->textBox($x, $y1, $w, $h, $texto, $aFont, 'C', 'C', 0, '');
         //numero paginas
@@ -3537,8 +3527,8 @@ class Danfe extends DaCommon
         } else {
             $this->pdf->textBox90($x, $y, $w, $h, $texto, $aFont, 'C', 'L', 1, '', false);
         }
-        $numNF = str_pad($this->ide->getElementsByTagName('nNF')->item(0)->nodeValue, 9, "0", STR_PAD_LEFT);
-        $serie = str_pad($this->ide->getElementsByTagName('serie')->item(0)->nodeValue, 3, "0", STR_PAD_LEFT);
+        $numNF = $this->ide->getElementsByTagName('nNF')->item(0)->nodeValue;
+        $serie = $this->ide->getElementsByTagName('serie')->item(0)->nodeValue;
         $texto = "RECEBEMOS DE ";
         $texto .= $emitente;
         $texto .= " OS PRODUTOS E/OU SERVIÇOS CONSTANTES DA NOTA FISCAL ELETRÔNICA INDICADA ";
